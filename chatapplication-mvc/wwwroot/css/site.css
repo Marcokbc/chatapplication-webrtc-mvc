@@ -23,13 +23,13 @@ body {
 }
 
 div[video-grid] * {
-    width: 200px;
+    width: 250px;
     height: 200px;
     object-fit: cover;
-    border-radius: 100%;
+    border-radius: 10px;
     border: 2px solid #007bff;
     padding: 3px;
-    margin: 8px;
+    margin: 3px;
 }
 
 .buttonRoom {
@@ -63,13 +63,13 @@ div[video-grid] * {
     flex-direction: row;
 }
 
-    .message-line.me {
-        justify-content: flex-end;
-    }
+.message-line.me {
+    justify-content: flex-end;
+}
 
-    .message-line.other {
-        justify-content: flex-start;
-    }
+.message-line.other {
+    justify-content: flex-start;
+}
 
 .message.me {
     background-color: aliceblue;

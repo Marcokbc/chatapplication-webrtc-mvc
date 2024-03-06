@@ -10,13 +10,23 @@ const connection = new signalR.HubConnectionBuilder()
     .build();
 
 connection.on("newUser", function (username) {
-    $('#userJoinMessage').text("O usuário " + username + " entrou na sala.");
-    var userJoinToast = new bootstrap.Toast($('#userJoinToast')[0]);
-    userJoinToast.show();
+    if (userName == username) {
+        $('#userJoinMessage').text("Você entrou na sala.");
+        var userJoinToast = new bootstrap.Toast($('#userJoinToast')[0]);
+        userJoinToast.show();
 
-    $('#closeUserJoinToast').click(function () {
-        userJoinToast.hide();
-    });
+        $('#closeUserJoinToast').click(function () {
+            userJoinToast.hide();
+        });
+    } else {
+        $('#userJoinMessage').text("O usuário " + username + " entrou na sala.");
+        var userJoinToast = new bootstrap.Toast($('#userJoinToast')[0]);
+        userJoinToast.show();
+
+        $('#closeUserJoinToast').click(function () {
+            userJoinToast.hide();
+        });
+    }
 });
 
 $('#okBtn').click(function () {

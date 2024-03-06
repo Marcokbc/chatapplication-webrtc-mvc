@@ -1,11 +1,15 @@
-﻿<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh;">
+﻿@{
+    ViewData["Title"] = "Room";
+}
+
+<div class="container-fluid d-flex justify-content-center align-items-center" style="height: 100vh; position: relative;">
     <div class="p-4 max-width">
         <div class="border-rounded">
             <div class="video-container m-3 container">
                 <div video-grid class="d-flex flex-wrap flex-row"></div>
             </div>
         </div>
-        <div class="border-rounded mt-3">
+        <div class="border-rounded mt-3" style="position: fixed; width: calc(100% - 20px); max-width: 600px; bottom: 10%; left: 50%; transform: translateX(-50%);">
             <div class="text-center my-1 mx-2">
                 <button class="buttonRoom mx-2" id="muteButton" onclick="toggleMute()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mic" viewBox="0 0 16 16">
@@ -23,6 +27,9 @@
         </div>
     </div>
 </div>
+
+
+
 
 <script src="~/js/signalr/dist/browser/signalr.min.js"></script>
 <script src="https://unpkg.com/peerjs@1.5.2/dist/peerjs.min.js"></script>
@@ -48,6 +55,7 @@
 
     const videoGrid = document.querySelector('[video-grid]')
     const myVideo = document.createElement('video')
+    myVideo.muted = true;
 
     navigator.mediaDevices.getUserMedia({
         audio: true,
